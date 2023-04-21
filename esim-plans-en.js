@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("message", function (event) {
     nbreOfOffers = event.data;
     if (Number.isInteger(nbreOfOffers)) {
-      console.log(nbreOfOffers);
       widgetHeight = calculateWidgetHeight(nbreOfOffers);
       newIframe.style = `width: 100%; border: 0; margin: 0 auto; display: block; height: ${widgetHeight}px`;
       elWidget.prepend(newIframe);
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(data => {
           nbreOfOffers = parseInt(data); // parse the fetched data as integer
-          console.log(nbreOfOffers);
           widgetHeight = calculateWidgetHeight(nbreOfOffers);
 
           newIframe.src = url;
