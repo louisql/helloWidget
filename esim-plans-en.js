@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   elWidgets.forEach(elWidget => {
     if (linkIsUpAndFollows(simbudLink)) {
       let dataWidget = elWidget.getAttribute("data-widget");
-      let url = "http://localhost:3001/" //Make sure to update to real url
+      let url = "https://cute-syrniki-030b45.netlify.app/" //Make sure to update to real url
 
       fetch(url)
         .then(response => {
