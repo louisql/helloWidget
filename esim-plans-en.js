@@ -1,12 +1,13 @@
-let nbreOfOffers;
-let widgetHeight;
-let newIframe = document.createElement('iframe');
+document.addEventListener("DOMContentLoaded", () => {
+    let nbreOfOffers;
+    let widgetHeight;
+    let newIframe = document.createElement('iframe');
 
-document.addEventListener("DOMContentLoaded", function () {
-    window.addEventListener("message", function (event) {
+    //Receiving message from the react website with the nber of offers
+    window.addEventListener("message", (event) => {
         nbreOfOffers = event.data;
 
-        //Was required to reset the parameters as two messages are coming from the react app, initial message empty, second one with relevant parameters
+        //Was required to set the parameters here and in loops as two messages are coming from the react app, initial message empty, second one with relevant parameters
         if (Number.isInteger(nbreOfOffers)) {
             widgetHeight = calculateWidgetHeight(nbreOfOffers);
             newIframe.style = `width: 100%; border: 0; margin: 0 auto; display: block; height: ${widgetHeight}px`;
@@ -22,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (linkIsUpAndFollows(simbudLink)) {
             let dataWidget = elWidget.getAttribute("data-widget");
 
-            //Make sure to update to real url
+            //Make sure to update to real url !
+            // let url = "http://localhost:3001/"
             let url = "https://cute-syrniki-030b45.netlify.app/"
             newIframe.src = url;
             newIframe.id = "eda";
             newIframe.className = "widgetIframeElement";
+            //Setting basic style for initial loading
             newIframe.style = `width: 100%; border: 0; margin: 0 auto; display: block; height: 320px`;
             newIframe.setAttribute("data-widget", dataWidget);
             elWidget.prepend(newIframe);
