@@ -1,9 +1,11 @@
+let nbreOfOffers
+
 window.addEventListener("message", function (event) {
     // if (event.origin !== 'https://example.com') { // replace with the domain of file1
     //   return; // reject messages from other domains
     // }
-    console.log(event.data); // log the message content
-    console.log(coucou)
+    // console.log(event.data); // log the message content
+    nbreOfOffers = event.data
   });
   
   
@@ -16,7 +18,7 @@ window.addEventListener("message", function (event) {
       if (linkIsUpAndFollows(simbudLink)) {
         let newIframe = document.createElement('iframe');
         let dataWidget = elWidget.getAttribute("data-widget");
-        let url = "https://cute-syrniki-030b45.netlify.app/" //Make sure to update to real url
+        let url = "http://localhost:3001/" //Make sure to update to real url
   
         // Fetch to verify the number of offers and adapt the size of the iframe
         fetch(url)
@@ -28,8 +30,8 @@ window.addEventListener("message", function (event) {
             }
           })
           .then(data => {
-            console.log(data)
-            let widgetHeight = calculateWidgetHeight(data);
+            // console.log(data)
+            let widgetHeight = calculateWidgetHeight(nbreOfOffers);
   
             // Set the iframe srcdoc attribute with the fetched HTML content
             newIframe.src = url;
@@ -58,22 +60,22 @@ window.addEventListener("message", function (event) {
     return link && !link.getAttribute('rel')?.match(/nofollow/i);
   }
   
-  const calculateWidgetHeight = (data) => {
-    let widgetHeight = 310;
+  const calculateWidgetHeight = (nbreOfOffers) => {
+    let widgetHeight = 320;
   
     // Transformation de la reponse
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, "text/html");
+    // const parser = new DOMParser();
+    // const doc = parser.parseFromString(data, "text/html");
   
     // Comptage du nombre d'offres, en multiple de 3
-    const count = doc.getElementsByClassName("Card_card__9h8Dh").length;
-    if (count > 3) {
+    // const count = doc.getElementsByClassName("Card_card__9h8Dh").length;
+    if (nbreOfOffers > 3) {
       widgetHeight += Math.floor((count - 1) / 3) * 210;
     }
   
-    console.log(count)
+    // console.log(nbreOfOffers)
 
-    if (count === 0) {
+    if (nbreOfOffers === 0) {
         widgetHeight = 180;
     }
 
