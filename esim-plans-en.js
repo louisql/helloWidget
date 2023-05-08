@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let dataWidget = elWidget.getAttribute("data-widget");
 
             //Make sure to update to real url !
-            let url = "http://localhost:3000/"
-            // let url = "https://cute-syrniki-030b45.netlify.app/"
+            // let url = "http://localhost:3000/"
+            let url = "https://cute-syrniki-030b45.netlify.app/"
             newIframe.src = url;
             newIframe.id = "eda";
             newIframe.className = "widgetIframeElement";
@@ -69,7 +69,9 @@ const calculateWidgetHeight = (data) => {
 
     //Below 3 offers
     if (count === 3) {
-        if (width > 720 && width < 932) {
+        if (width > 932) {
+            widgetHeight = 410
+        } else if (width > 720 && width < 932) {
             widgetHeight = 640
         } else if (width<630 && width > 610) {
             widgetHeight = 740
