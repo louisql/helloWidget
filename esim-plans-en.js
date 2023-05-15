@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Receiving message from the react website with the nber of offers
     window.addEventListener("message", (event) => {
         nbreOfOffers = event.data;
-        console.log(nbreOfOffers)
+        // console.log(nbreOfOffers)
         
         //Was required to set the parameters here and in loops as two messages are coming from the react app, initial message empty, second one with relevant parameters
         if (Number.isInteger(nbreOfOffers)) {
@@ -50,27 +50,18 @@ const linkIsUpAndFollows = (link) => {
 }
 
 const calculateWidgetHeight = (data) => {
-    // console.log(data)
     let width = window.innerWidth;
-
-    let widgetHeight = 410
-
-
-
-    // Parsing the answer
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, "text/html");
+    let widgetHeight = 420
 
     // Counting number of offers, in multiple of 3
-    // const count = doc.getElementsByClassName("Card_card__9h8Dh").length;
     const count = data;
 
-// Managing height when we have 3, 2 or 1 offers (and their multiple)
+    // Adjusting height depending on number of offers
 
-    //Below 3 offers
+    //3 offers or below
     if (count === 3) {
         if (width > 932) {
-            widgetHeight = 410
+            widgetHeight = 420
         } else if (width > 720 && width < 932) {
             widgetHeight = 640
         } else if (width<630 && width > 610) {
