@@ -1,8 +1,9 @@
 ## Steps to implement the widget
 
 # 1 - Add script to page
+```
 <script src="esim-plans-en.js"></script>
-
+```
 
 # 2 - Add HTML code to page
 ```
