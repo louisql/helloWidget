@@ -17,3 +17,4 @@
 - Database still under construction - Canada & Afghanistan currently only countries with offer
 - Check offer buttons will redirect to provider
 - Check all offers button will redirect to our search page 
+- Widget Demo available here: https://amazing-sundae-746c61.netlify.app/ 
