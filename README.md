@@ -2,7 +2,7 @@
 
 # 1 - Add script to page
 ```
-<script src="esim-plans-en.js"></script>
+<script src="https://amazing-sundae-746c61.netlify.app/esim-plans-en.js"></script>
 ```
 
 # 2 - Add HTML code to page
@@ -14,6 +14,7 @@
 ```
 
 ## Notes
+- Language adjust to browser preferences
 - Widget is reponsive. Iframes require to refresh the page to adjust size if window size is changed
 - Database still under construction - Canada & Afghanistan currently only countries with offer
 - Check offer buttons will redirect to provider
