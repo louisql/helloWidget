@@ -63,13 +63,13 @@ const calculateWidgetHeight = (data) => {
         if (width > 932) {
             widgetHeight = 420
         } else if (width > 720 && width < 932) {
-            widgetHeight = 640
+            widgetHeight = 660
         } else if (width<630 && width > 610) {
             widgetHeight = 740
         } else if (width>610) {
-            widgetHeight = 710
+            widgetHeight = 725
         } else if (width > 450){
-            widgetHeight = 945
+            widgetHeight = 960
         } else {
             widgetHeight = 1010
         }
