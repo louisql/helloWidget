@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let elWidgets = document.querySelectorAll(".simbud-esim-plans-widget");
 
     //Make sure to update to real url !
-    let url = "http://localhost:3000/"
-    // let url = "https://cute-syrniki-030b45.netlify.app/"
+    // let url = "http://localhost:3000/"
+    let url = "https://cute-syrniki-030b45.netlify.app/"
     newIframe.src = url;
     newIframe.id = "eda";
     newIframe.className = "widgetIframeElement";
