@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Make sure to update to real url !
     // let url = "http://localhost:3000/"+country+"&referal="+referal
-    let url = "https://cute-syrniki-030b45.netlify.app/?country="+country+"&referal="+referal
+    let url = "https://simbud.com/widget/?country="+country+"&referal="+referal
     newIframe.src = url;
     newIframe.id = "eda";
     newIframe.className = "widgetIframeElement";
