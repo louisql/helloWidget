@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const country = elWidget.dataset.country || 'Canada';
         const referal = elWidget.dataset.referal || '';
         const currency = elWidget.dataset.currency || 'CAD';
+        const offersDisplayed = elWidget.dataset.offersDisplayed || 6;
 
-        let url = "https://simbud.com/widget/?country=" + country + "&referal=" + referal + "&currency=" + currency;
+        let url = "https://simbud.com/widget/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer" + offersDisplayed;
 
-        newIframe.src = url;
+        // newIframe.src = url;
+        newIframe.src = 'http://localhost:3000/';
         newIframe.id = "eda";
         newIframe.className = "widgetIframeElement";
         //Setting basic style for initial loading
