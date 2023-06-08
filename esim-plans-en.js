@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let url = "https://simbud.com/widget/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer" + offersDisplayed;
 
-        // newIframe.src = url;
-        newIframe.src = 'http://localhost:3000/';
+         newIframe.src = url;
+        // newIframe.src = 'http://localhost:3000/';
         newIframe.id = "eda";
         newIframe.className = "widgetIframeElement";
         //Setting basic style for initial loading
