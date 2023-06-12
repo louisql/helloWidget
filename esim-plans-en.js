@@ -5,18 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let simbudLink = document.querySelector("a[href*='https://www.simbud.com']");
     let elWidgets = document.querySelectorAll(".simbud-esim-plans-widget");
-    
+
 
     elWidgets.forEach(elWidget => {
         const country = elWidget.dataset.country || 'Canada';
         const referal = elWidget.dataset.referal || '';
         const currency = elWidget.dataset.currency || 'CAD';
-        const offersDisplayed = elWidget.dataset.offersDisplayed || 6;
+        const offersDisplayed = elWidget.dataset.offersdisplayed || 6;
+        const language = elWidget.dataset.language || 'en';
 
-        let url = "https://simbud.com/widget/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer" + offersDisplayed;
+        let url = "https://simbud.com/widgetActualite/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language;
 
-         newIframe.src = url;
-        // newIframe.src = 'http://localhost:3000/';
+        newIframe.src = url;
+        // newIframe.src = "http://localhost:3000/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language;
         newIframe.id = "eda";
         newIframe.className = "widgetIframeElement";
         //Setting basic style for initial loading
