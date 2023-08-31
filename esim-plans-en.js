@@ -6,6 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let simbudLink = document.querySelector("a[href*='https://www.simbud.com']");
     let elWidgets = document.querySelectorAll(".simbud-esim-plans-widget");
 
+    // Get referal value from data-attribute
+    const referalValue = document.querySelector('.simbud-esim-plans-widget').getAttribute('data-referal');
+    
+    // Get the a
+    const poweredByLink = document.getElementById('poweredByLink');
+
+    if (referalValue !== ""){
+        // Update the href attribute of the link with the dynamic URL
+        poweredByLink.href = `https://www.simbud.com/?referal=${referalValue}`;
+    }
+    // in case we want it to be visible that redirection from other website && that its widget attribute data-referal is empty
+    else {
+        poweredByLink.href = `https://www.simbud.com/?referal=null`;
+    }
 
     elWidgets.forEach(elWidget => {
         const country = elWidget.dataset.country || 'Canada';
@@ -13,8 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const currency = elWidget.dataset.currency || 'CAD';
         const offersDisplayed = elWidget.dataset.offersdisplayed || 6;
         const language = elWidget.dataset.language || 'en';
+        const provider = elWidget.dataset.provider || '';
 
-        let url = "https://simbud.com/widgetActualite/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language;
+        let url = "https://simbud.com/widgetActualite/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language + "&provider=" + provider;
 
         newIframe.src = url;
         // newIframe.src = "http://localhost:3000/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language;
