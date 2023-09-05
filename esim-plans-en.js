@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let url = "https://simbud.com/widgetActualite/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language + "&provider=" + provider;
 
         newIframe.src = url;
-        // newIframe.src = "http://localhost:3000/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language;
+        // newIframe.src = "http://localhost:3000/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language + "&provider=" + provider;
         newIframe.id = "eda";
         newIframe.className = "widgetIframeElement";
         //Setting basic style for initial loading
