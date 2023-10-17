@@ -21,16 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
         poweredByLink.href = `https://www.simbud.com/?referal=null`;
     }
 
-    // Check if there is a utm_source in the url and make it the data-referal value if so
-    // JavaScript code within the HTML page
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    var utmSource = urlParams.get("utm_source");
-
-
-    url = window.location.href;
-    console.log("Current Url = " + url);
-
     elWidgets.forEach(elWidget => {
         const country = elWidget.dataset.country || 'Canada';
 
