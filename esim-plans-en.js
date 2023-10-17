@@ -21,9 +21,37 @@ document.addEventListener("DOMContentLoaded", () => {
         poweredByLink.href = `https://www.simbud.com/?referal=null`;
     }
 
+    // Check if there is a utm_source in the url and make it the data-referal value if so
+    // JavaScript code within the HTML page
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var utmSource = urlParams.get("utm_source");
+
+
+    url = window.location.href;
+    console.log("Current Url = " + url);
+
     elWidgets.forEach(elWidget => {
         const country = elWidget.dataset.country || 'Canada';
-        const referal = elWidget.dataset.referal || '';
+
+        // check if there is utm_source param in url
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        var utmSource = urlParams.get("utm_source");
+
+        // initialize referal before assignment
+        var referal = null;
+
+        // set data-referal as utm_source if yes, else 
+        if (utmSource) {
+            // console.log("utm_source: " + utmSource);
+            elWidget.dataset.referal = utmSource;
+            referal = elWidget.dataset.referal;
+        } else {
+            // console.log("utm_source not found in the URL.");
+            referal = elWidget.dataset.referal || '';
+        }
+
         const currency = elWidget.dataset.currency || 'CAD';
         const offersDisplayed = elWidget.dataset.offersdisplayed || 6;
         const language = elWidget.dataset.language || 'en';
