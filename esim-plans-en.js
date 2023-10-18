@@ -9,39 +9,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // Get referal value from data-attribute
     const referalValue = document.querySelector('.simbud-esim-plans-widget').getAttribute('data-referal');
     
-    // Get the a
     const poweredByLink = document.getElementById('poweredByLink');
+    
+    // check if there is utm_source param in url
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var utmSource = urlParams.get("utm_source");
 
-    if (referalValue !== ""){
-        // Update the href attribute of the link with the dynamic URL
-        poweredByLink.href = `https://www.simbud.com/?referal=${referalValue}`;
+    // change data-attribute value & link if (utm_source) 
+    if(utmSource && utmSource !== ""){
+        document.querySelector('.simbud-esim-plans-widget').setAttribute('data-referal', utmSource);
+        poweredByLink.href = `https://www.simbud.com/?referal=${utmSource}`;
     }
-    // in case we want it to be visible that redirection from other website && that its widget attribute data-referal is empty
-    else {
+    // change link in all other cases
+    else if(referalValue !== ""){
+        poweredByLink.href = `https://www.simbud.com/?referal=${referalValue}`;
+    }else{
         poweredByLink.href = `https://www.simbud.com/?referal=null`;
     }
 
     elWidgets.forEach(elWidget => {
         const country = elWidget.dataset.country || 'Canada';
-
-        // check if there is utm_source param in url
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var utmSource = urlParams.get("utm_source");
-
-        // initialize referal before assignment
-        var referal = null;
-
-        // set data-referal as utm_source if yes, else 
-        if (utmSource) {
-            // console.log("utm_source: " + utmSource);
-            elWidget.dataset.referal = utmSource;
-            referal = elWidget.dataset.referal;
-        } else {
-            // console.log("utm_source not found in the URL.");
-            referal = elWidget.dataset.referal || '';
-        }
-
+        const referal = elWidget.dataset.referal || '';
         const currency = elWidget.dataset.currency || 'CAD';
         const offersDisplayed = elWidget.dataset.offersdisplayed || 6;
         const language = elWidget.dataset.language || 'en';
