@@ -35,11 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const offersDisplayed = elWidget.dataset.offersdisplayed || 6;
         const language = elWidget.dataset.language || 'en';
         const provider = elWidget.dataset.provider || '';
+        const theme = elWidget.dataset.theme || 'simbud';
 
-        let url = "https://simbud.com/widgetActualite/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language + "&provider=" + provider;
+        let url = "https://simbud.com/widgetActualite/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language + "&provider=" + provider + "&theme=" + theme;
 
-        newIframe.src = url;
-        // newIframe.src = "http://localhost:3000/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language + "&provider=" + provider;
+        // newIframe.src = url;
+        newIframe.src = "http://localhost:3000/?country=" + country + "&referal=" + referal + "&currency=" + currency + "&nberOffer=" + offersDisplayed + "&language=" + language + "&provider=" + provider + "&theme=" + theme;
         newIframe.id = "eda";
         newIframe.className = "widgetIframeElement";
         //Setting basic style for initial loading
