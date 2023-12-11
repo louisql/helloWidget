@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     elWidgets.forEach(elWidget => {
-        const country = elWidget.dataset.country || 'Canada';
+        const country = elWidget.dataset.country || 'USA';
         const referal = elWidget.dataset.referal || '';
         const currency = elWidget.dataset.currency || 'CAD';
         const offersDisplayed = elWidget.dataset.offersdisplayed || 6;
